@@ -1,5 +1,5 @@
-import { calculateRuleScore } from '../scores';
-import { Lead, Offer } from '../types';
+import { calculateRuleScore } from '../scores.js';
+import { Lead, Offer } from '../types.js';
 
 describe('Rule Layer Scoring', () => {
 

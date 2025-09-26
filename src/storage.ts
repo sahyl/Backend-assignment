@@ -1,4 +1,4 @@
-import { Offer ,Lead ,ScoreLead } from "./types";
+import { Offer ,Lead ,ScoreLead } from "./types.js";
 
 
 export const storage = {
