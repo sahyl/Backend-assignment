@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "5.0"  // Changed to a valid version, or delete this line
   },
   "include": ["src"],
   "exclude": ["node_modules"]
