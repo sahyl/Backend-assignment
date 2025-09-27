@@ -2,9 +2,9 @@ import express from "express";
 import multer from "multer";
 import csvParser from "csv-parser";
 import fs from "fs";
-import { Lead, Offer } from "./types.js";
-import { storage } from "./storage.js";
-import { runScoring } from "./scores.js";
+import { Lead, Offer } from "./types";
+import { storage } from "./storage";
+import { runScoring } from "./scores";
 
 const router = express.Router();
 

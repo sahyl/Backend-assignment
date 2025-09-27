@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
-import { Offer , Lead, ScoreLead } from "./types.js";
-import { storage } from "./storage.js";
+import { Offer , Lead, ScoreLead } from "./types";
+import { storage } from "./storage";
 import dotenv from "dotenv";
 dotenv.config();
 
