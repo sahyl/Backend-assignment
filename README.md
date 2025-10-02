@@ -271,8 +271,7 @@ GET /results/export
 It should return `Content-Type: text/csv` with a header row.
 
 ---
-```markdown
-# Backend Assignment Setup Instructions
+# 9) Docker Setup Instructions
 
 This guide provides step-by-step instructions to build and run the backend assignment using Docker.
 
@@ -394,7 +393,7 @@ Open your browser and navigate to `http://localhost:3000` to confirm the API is 
 
 
 
-## 12) Troubleshooting
+## 10) Troubleshooting
 
 * **Missing AI key / 401 from OpenAI**: confirm `GEMINI_API_KEY` is set in `.env` and provided via `--env-file` or Render secrets.
 * **CSV upload fails**: ensure you send `form-data` with key `file` and content type `text/csv`.
