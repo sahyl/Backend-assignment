@@ -271,6 +271,126 @@ GET /results/export
 It should return `Content-Type: text/csv` with a header row.
 
 ---
+```markdown
+# Backend Assignment Setup Instructions
+
+This guide provides step-by-step instructions to build and run the backend assignment using Docker.
+
+## Step 1: Build the Docker Image
+
+From the project root directory, build the Docker image using the provided `Dockerfile`:
+
+```bash
+docker build -t backend-assignment:latest .
+````
+
+This command creates a Docker image named `backend-assignment:latest`.
+
+## Step 2: Create a `.env` File
+
+Copy the provided `.env.example` file to `.env` and configure it with your values:
+
+```bash
+cp .env.example .env
+```
+
+### Required Environment Variables
+
+Edit the `.env` file and ensure the following variables are set:
+
+```
+PORT=3000
+GEMINI_API_KEY=sk-...
+```
+
+
+## Step 3: Run the Container Using Docker CLI
+
+### Production Mode
+
+To run the container in production mode:
+
+```bash
+docker run -d \
+  --name backend-assignment \
+  -p 3000:3000 \
+  --env-file .env \
+  backend-assignment:latest
+```
+
+- `-d`: Runs the container in detached mode (in the background).
+- `-p 3000:3000`: Maps port 3000 on the host to port 3000 in the container.
+- `--env-file .env`: Loads environment variables from the `.env` file.
+
+### Development Mode (Hot Reload)
+
+For local development with hot reload:
+
+```bash
+docker run -it --rm \
+  -v $(pwd):/app \
+  -v /app/node_modules \
+  -p 3000:3000 \
+  --env-file .env \
+  backend-assignment:latest \
+  npm run dev
+```
+
+- `-it --rm`: Runs interactively and removes the container when stopped.
+- `-v $(pwd):/app`: Mounts the local project directory into the container for live code updates.
+- `-v /app/node_modules`: Prevents conflicts between host and container `node_modules`.
+- `npm run dev`: Starts the development server with hot reload.
+
+## Step 4: Run with Docker Compose (Recommended)
+
+A `docker-compose.yml` file is included for easier management of the service:
+
+```yaml
+version: "3.8"
+
+services:
+  app:
+    build: .
+    image: backend-assignment:latest
+    ports:
+      - "3000:3000"
+    env_file: .env
+    restart: unless-stopped
+```
+
+### Start the Service
+
+If you haven’t already, create the `.env` file:
+
+```bash
+cp .env.example .env
+```
+
+Then, start the service:
+
+```bash
+docker-compose up -d
+```
+
+### Stop the Service
+
+To stop the service:
+
+```bash
+docker-compose down
+```
+
+
+## Step 5: Verify
+
+Check the container logs to ensure the service is running correctly:
+
+```bash
+docker logs -f backend-assignment
+```
+
+Open your browser and navigate to `http://localhost:3000` to confirm the API is running.
+
 
 
 
