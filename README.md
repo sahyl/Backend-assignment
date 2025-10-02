@@ -17,10 +17,8 @@ This README is written to match the *Backend Engineer Hiring Assignment* and exp
 7. Rule layer & AI prompt (how scoring works)
 8. Exporting results as CSV
 9. Dockerizing (step-by-step guide)
-10. docker-compose example
-11. .dockerignore
-12. Troubleshooting
-13. Notes & credits
+10. Troubleshooting
+
 
 ---
 
