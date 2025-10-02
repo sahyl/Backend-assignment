@@ -1,0 +1,28 @@
+# Node modules & debug logs
+node_modules
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+# Output / build directories
+dist
+build
+coverage
+
+# Environment & secrets
+.env
+.env.*.local
+
+# Docker & Git
+Dockerfile
+.dockerignore
+.git
+.gitignore
+
+# IDE & OS files
+.vscode
+.idea
+*.swp
+.DS_Store
+Thumbs.db
+uploads/
