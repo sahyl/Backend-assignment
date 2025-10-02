@@ -2,7 +2,7 @@
 
 **Live deployment:** [https://backend-assignment-1-rlyv.onrender.com](https://backend-assignment-1-rlyv.onrender.com)
 
-This README is written to match the *Backend Engineer Hiring Assignment* and explains how to set up, run, test (Postman / curl), and dockerize the service. It also documents endpoints, rule logic, AI prompt design, and troubleshooting tips.
+This README is written to match the *Backend Engineer Hiring Assignment* and explains how to set up, run and  test (Postman / curl) the service. It also documents endpoints, rule logic, AI prompt design, and troubleshooting tips.
 
 ---
 
@@ -241,9 +241,22 @@ curl "https://backend-assignment-1-rlyv.onrender.com/results"
 
 **Final score** = `rule_score` + `ai_points` (0–100). The README documents the prompt used. Example prompt used in the project:
 
-> "You are an expert sales analyst. Given the product offer and a prospect's details (name, role, company, industry, LinkedIn bio), classify the prospect's buying intent as High, Medium, or Low and provide a 1–2 sentence reasoning focused on fit to the product's ideal use cases and the prospect role. Return only the label and one short sentence explanation."
+> "“Classify intent (High/Medium/Low) and explain in 1–2 sentences.”"
 
-(Adjust the exact prompt in your code where the AI integration happens.)
+
+ ## Running tests (unit tests)
+
+The project includes a test file `score.test.ts` that verifies scoring logic (Rule Layer + AI Layer mapping). Run the tests using:
+
+```bash
+npm test
+```
+
+Ensure you have all dependencies installed and `.env` variables set up before running tests. The test file will validate:
+
+* Rule scoring correctness for various inputs.
+* AI intent mapping to scores (High/Medium/Low).
+* Overall final score calculation combining both layers.
 
 ---
 
@@ -265,4 +278,46 @@ It should return `Content-Type: text/csv` with a header row.
 
 * **Missing AI key / 401 from OpenAI**: confirm `GEMINI_API_KEY` is set in `.env` and provided via `--env-file` or Render secrets.
 * **CSV upload fails**: ensure you send `form-data` with key `file` and content type `text/csv`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
